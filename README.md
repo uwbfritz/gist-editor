@@ -1,9 +1,9 @@
 # Ghetto Gist Manager
 
 ## Prerequisites
-- GitHub Client (gh)
-- fzf
-- nano
+- GitHub client (gh): https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+- fzf: https://github.com/junegunn/fzf/releases
+- nano: (any package manager)
 
 ## Description
 
@@ -20,4 +20,12 @@ sudo cp gist.sh /usr/bin/gist
 ## Usage
 ```Bash
 gist
+```
+
+## Troubleshooting
+- I'm getting another editor than nano:
+    
+```Bash
+    echo "export EDITOR=/usr/bin/nano" >> ~/.bashrc
+    source ~/.bashrc
 ```
