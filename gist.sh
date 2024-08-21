@@ -8,18 +8,20 @@
 #    
 #---------------------------------------------------------------------------------------------------
 
+gist_editor="micro"
+export EDITOR=$gist_editor
 
 clear
 
 main_menu() {
   echo -e "1. \033[32mCreate a new gist\033[0m\n2. \033[34mList and edit a gist\033[0m\n3. \033[31mDelete a gist\033[0m" | \
-    fzf --height 60% --border --ansi --prompt "Choose an option: " --with-nth=2..
+    fzf --height 80% --border --ansi --prompt "Choose an option: " --with-nth=2..
 }
 
 create_gist() {
   tmpfile=$(mktemp /tmp/gist_XXXXXX.md)
-  echo -e "\033[33mWrite your gist content. Save and exit nano when done.\033[0m"
-  nano "$tmpfile"
+  echo -e "\033[33mWrite your gist content. Save and exit" $gist_editor "when done.\033[0m"
+  $gist_editor "$tmpfile"
 
   if [ -s "$tmpfile" ]; then
     echo -e "\033[33mEnter a description for the gist: \033[0m"
@@ -44,7 +46,7 @@ create_gist() {
 
 edit_gist() {
   selected_gist=$(gh gist list -L 500 | \
-    fzf --height 60% --border --ansi --preview 'gh gist view {1}' --preview-window=right:60%:wrap --layout=reverse --info=inline)
+    fzf --height 80% --border --ansi --preview 'gh gist view {1}' --preview-window=right:60%:wrap --layout=reverse --info=inline --header='Select a gist to edit')
   
   if [ -n "$selected_gist" ]; then
     gist_id=$(echo "$selected_gist" | awk '{print $1}')
@@ -56,7 +58,7 @@ edit_gist() {
 
 delete_gist() {
   selected_gist=$(gh gist list -L 500 | \
-    fzf --height 60% --border --ansi --preview 'gh gist view {1}' --preview-window=right:60%:wrap --layout=reverse --info=inline)
+    fzf --height 80% --border --ansi --preview 'gh gist view {1}' --preview-window=right:60%:wrap --layout=reverse --info=inline)
   
   if [ -n "$selected_gist" ]; then
     gist_id=$(echo "$selected_gist" | awk '{print $1}')
