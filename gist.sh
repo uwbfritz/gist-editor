@@ -2,7 +2,7 @@
 #---------------------------------------------------------------------------------------------------
 #  *                              Gist Manager using GitHub CLI                                 *
 #    
-#    Author: Bill Fritz
+#    Author: uwbfritz
 #    Description: Gist manager using GitHub CLI
 #    Last Modified: 2024-08-20
 #    
@@ -93,7 +93,6 @@ if [ $# -gt 0 ]; then
     *)
       echo -e "\033[31mInvalid argument\033[0m"
       echo -e "Valid options are:\n1. list\n2. edit\n3. delete"
-      main_menu
       exit
       ;;
   esac
