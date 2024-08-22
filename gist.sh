@@ -75,6 +75,29 @@ delete_gist() {
   fi
 }
 
+
+if [ $# -gt 0 ]; then
+  case $1 in
+    "list")
+      gh gist list -L 500
+      exit
+      ;;
+    "edit")
+      edit_gist
+      exit
+      ;;
+    "delete")
+      delete_gist
+      exit
+      ;;
+    *)
+      echo -e "\033[31mInvalid argument\033[0m"
+      echo -e "Valid options are:\n1. list\n2. edit\n3. delete"
+      exit
+      ;;
+  esac
+fi
+
 selection=$(main_menu)
 
 case $selection in
