@@ -11,8 +11,8 @@ This is a simple script that allows you to manage your gists from the command li
 
 ## Installation
 ```Bash
-git clone <the repo>
-cd <the repo>
+git clone https://github.com/uwbfritz/gist-editor.git
+cd gist-editor
 chmod +x gist.sh
 sudo cp gist.sh /usr/bin/gist
 ```
