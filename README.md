@@ -1,5 +1,7 @@
 # Ghetto Gist Manager
 
+[![Shellcheck](https://github.com/uwbfritz/gist-editor/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/uwbfritz/gist-editor/actions/workflows/main.yml)
+
 ## Prerequisites
 - GitHub client (gh): https://github.com/cli/cli/blob/trunk/docs/install_linux.md
 - fzf: https://github.com/junegunn/fzf/releases
